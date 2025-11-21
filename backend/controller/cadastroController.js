@@ -65,18 +65,33 @@ endpoint.post("/registro", async (req, res) => {
 endpoint.post("/uploadFoto", upload.single("foto"), async (req, res) => {
   try {
     const nome = req.body.nome;
+
+    if (!nome)
+      return res.status(400).json({ error: "Nome do usuário é obrigatório." });
+
     if (!req.file) {
       return res.status(400).json({ error: "Nenhuma imagem foi enviada." });
     }
 
     const caminho = `/uploads/${req.file.filename}`;
-    await Repository.atualizarFotoPerfil(nome, caminho);
 
-    res.status(200).json({ success: true, caminho });
+    const atualizado = await Repository.atualizarFotoPerfil(nome, caminho);
+
+    if (!atualizado) {
+      return res.status(404).json({ error: "Usuário não encontrado." });
+    }
+
+    res.status(200).json({
+      success: true,
+      foto: caminho,
+      message: "Foto atualizada com sucesso!"
+    });
+
   } catch (error) {
     console.error("Erro ao salvar foto de perfil:", error);
-    res.status(500).json({ error: "Erro ao salvar a foto de perfil." });
+    res.status(500).json({ error: "Erro interno ao salvar foto de perfil." });
   }
 });
+
 
 export default endpoint;

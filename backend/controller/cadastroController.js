@@ -73,14 +73,17 @@ endpoint.post("/uploadFoto", upload.single("foto"), async (req, res) => {
       return res.status(400).json({ error: "Nenhuma imagem foi enviada." });
     }
 
-    const caminho = `/uploads/${req.file.filename}`;
+    // GERAR O CAMINHO CERTO
+    const caminho = `/storage/${req.file.filename}`;
 
+    // SALVAR NO BANCO
     const atualizado = await Repository.atualizarFotoPerfil(nome, caminho);
 
     if (!atualizado) {
       return res.status(404).json({ error: "Usuário não encontrado." });
     }
 
+    // RETORNAR PARA O FRONT
     res.status(200).json({
       success: true,
       foto: caminho,
@@ -92,6 +95,7 @@ endpoint.post("/uploadFoto", upload.single("foto"), async (req, res) => {
     res.status(500).json({ error: "Erro interno ao salvar foto de perfil." });
   }
 });
+
 
 
 export default endpoint;

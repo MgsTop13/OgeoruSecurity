@@ -1,0 +1,165 @@
+.footer-home {
+    --footer-bg: #6892c196;
+    --text-color: #1E293B;
+    --link-color: #1E293B;
+    --link-hover: #333366;
+    --border-color: #00000033;
+    --section-bg: #ffffff33;
+
+    width: 100%;
+    background: var(--footer-bg);
+    color: var(--text-color);
+    padding: 2rem 1rem 1rem;
+    margin-top: auto;
+
+    &.dark {
+        --footer-bg: #112a4396;
+        --text-color: #e2e3de;
+        --link-color: #e2e3de;
+        --link-hover: #00CA1E;
+        --border-color: #ffffff33;
+        --section-bg: #00000033;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 1.5rem;
+
+        .footer-section {
+            h3 {
+                border-bottom: 2px solid var(--link-hover);
+                padding-bottom: 0.5rem;
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                color: var(--text-color);
+            }
+
+            .contact-info {
+                .contact-item {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 0.8rem;
+
+                    .contact-label {
+                        font-weight: 600;
+                        margin-bottom: 0.2rem;
+                        color: var(--text-color);
+                    }
+
+                    .contact-link {
+                        color: var(--link-color);
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: var(--link-hover);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+
+                .footer-link {
+                    color: var(--link-color);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    padding: 0.2rem 0;
+
+                    &:hover {
+                        color: var(--link-hover);
+                        text-decoration: underline;
+                        transform: translateX(5px);
+                    }
+                }
+            }
+
+            .security-text {
+                line-height: 1.5;
+                color: var(--text-color);
+                font-style: italic;
+            }
+
+            // ESTILOS PARA O LINK "SOBRE A EMPRESA" - ADICIONE ISSO
+            &:last-child {
+                .footer-link {
+                    color: var(--link-color);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    padding: 0.2rem 0;
+                    display: inline-block;
+
+                    &:hover {
+                        color: var(--link-hover);
+                        text-decoration: underline;
+                        transform: translateX(5px);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid var(--border-color);
+        padding-top: 1.5rem;
+        text-align: center;
+
+        p {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// Responsividade
+@media screen and (max-width: 768px) {
+    .footer-home {
+        padding: 1.5rem 1rem;
+
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            text-align: center;
+
+            .footer-section {
+                .contact-info {
+                    .contact-item {
+                        align-items: center;
+                    }
+                }
+
+                // PARA MOBILE TAMBÉM
+                &:last-child {
+                    .footer-link {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .footer-bottom {
+            padding-top: 1rem;
+            
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .footer-home {
+        .footer-content {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

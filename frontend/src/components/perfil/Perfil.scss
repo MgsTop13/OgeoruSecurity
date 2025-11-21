@@ -1,0 +1,169 @@
+/* Fundo escurecido atrás do modal */
+.overlay-perfil {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+
+.MainPerfil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -32px 15px;
+
+  --fundo-botao-fechar-A: #b71c1c;
+  --fundo-botao-fechar: #e63946;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --fundo-botao-P: #628fbd;
+  --fundo-botao-A: #104e8b;
+  --fundo-perfil: #8eace2;
+  --borda-img: #1e90ff;
+  --text-nome: #2f4253;
+  --black: #000000;
+  --white: #fff;
+  
+  .imagem-abas {
+    background-color: var(--fundo-perfil);
+    border: solid var(--black) 2px;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 300px;
+    width: 100vh;
+    box-shadow: var(--shadow);
+    margin: 10px;
+
+    .cabecalho-perfil {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      display: flex;
+    
+      .foto-perfil {
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 12px;
+      }
+    
+      .img-perfil {
+        margin-left: 45px;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--borda-img);
+      }
+    
+      .botao-add-foto {
+        position: relative;
+        right: 50px;
+        background-color: var(--fundo-botao-A);
+        border: 2px solid var(--black);
+        justify-content: center;
+        transition: 0.3s ease;
+        align-items: center;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 26px;
+        cursor: pointer;
+        color: white;
+        display: flex;
+        height: 38px;
+        width: 38px;
+      }
+    
+      .botao-add-foto:hover {
+        background-color: var(--fundo-botao-P);
+        transform: scale(1.05);
+      }
+    
+      .apelido {
+        color: var(--text-nome);
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+    
+
+    .perfil-abas {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+
+      button {
+        background-color: var(--fundo-botao-A);
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &.ativo {
+          background-color: var(--fundo-botao-A);
+        }
+
+        &:hover {
+          background-color: var(--fundo-botao-P);
+        }
+      }
+    }
+
+    .perfil-info {
+      text-align: left;
+      line-height: 1.6;
+
+      p {
+        font-size: 1rem;
+        margin: 6px 0;
+        color: var(--black);
+      }
+    }
+
+    .perfil-actions{
+      display: flex;
+      flex-direction: row;
+
+      .btn-fechar {
+        display: block;
+        margin: 20px auto 0;
+        padding: 8px 20px;
+        background-color: var(--fundo-botao-fechar);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+  
+        &:hover {
+          background-color: var(--fundo-botao-fechar-A);
+        }
+      }
+    }
+
+  }
+}
+
+// Responsividade para mobile
+@media (max-width: 768px) {
+  .MainPerfil {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 350px;
+    
+    .imagem-abas {
+      padding: 20px;
+    }
+  }
+}

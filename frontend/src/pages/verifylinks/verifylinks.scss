@@ -1,0 +1,699 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .MainVerifyLinks {
+        height: 100vh;
+        width: 100%;
+        --CardBg: #ced4dac1;
+        --BorderCard: #000000b6;
+        --ShadowCard: -2px 3px 2px #00000094;
+        --HoverCard: -1px 10px 10px #000000ea;
+        --ButtonBg: #333366;
+        --ButtonHover: #262650;
+        --BorderButton: #000000;
+        --TextButton: #FFFFFF;
+        --Text: #333333;
+        --SeguroBg: #d4edda;
+        --SeguroText: #155724;
+        --SeguroBorder: #c3e6cb;
+        --PerigosoBg: #f8d7da;
+        --PerigosoText: #721c24;
+        --PerigosoBorder: #f5c6cb;
+        --AlertaBg: #fff3cd;
+        --AlertaText: #856404;
+        --AlertaBorder: #ffc107;
+        --DetalhesBg: rgba(0,0,0,0.1);
+        --ItemBg: rgba(255,255,255,0.1);
+
+        &.dark {
+            --CardBg: #28374e98;
+            --InputBackground: #2C2C2E;
+            --BorderCard: #1E1E1E;
+            --ShadowCard: -2px 3px 2px #00000094;
+            --HoverCard: -1px 10px 10px #000000ea;
+            --ButtonBg: #0040FF;
+            --ButtonHover: #262650;
+            --BorderButton: #000000;
+            --TextButton: #FFFFFF;
+            --Text: #D1D5DB;
+            --SeguroBg: #1e3a1e;
+            --SeguroText: #90ee90;
+            --SeguroBorder: #2d5a2d;
+            --PerigosoBg: #3a1e1e;
+            --PerigosoText: #ff6b6b;
+            --PerigosoBorder: #5a2d2d;
+            --AlertaBg: #3a3a1e;
+            --AlertaText: #ffd700;
+            --AlertaBorder: #ffc107;
+            --DetalhesBg: rgba(255,255,255,0.05);
+            --ItemBg: rgba(255,255,255,0.08);
+        }
+
+        .page-Links {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+
+            .card-Links {
+                border-radius: 12px;
+                margin-top: 100px;
+                background-color: var(--CardBg);
+                border: 2px solid var(--BorderCard);
+                box-shadow: var(--ShadowCard);
+                color: var(--Text);
+                width: 100%;
+                max-width: 650px;
+                height: 500px;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                transition: all 0.3s ease;
+                padding: 20px;
+                position: relative;
+                overflow: auto;
+
+                &:hover {
+                    box-shadow: var(--HoverCard);
+                }
+
+                .part1-Links {
+                    h2 {
+                        font-size: clamp(1.5rem, 4vw, 2rem);
+                        margin: 0 0 20px 0;
+                        color: var(--Text);
+                    }
+
+                    input {
+                        width: 100%;
+                        max-width: 400px;
+                        padding: 12px 15px;
+                        background-color: var(--InputBackground);
+                        border: 1px solid var(--BorderCard);
+                        border-radius: 5px;
+                        color: var(--Text);
+                        font-size: 1rem;
+                        box-sizing: border-box;
+                        margin: 0 auto;
+                        display: block;
+                    }
+
+                    input:-webkit-autofill {
+                        -webkit-box-shadow: 0 0 0 30px var(--InputBackground) inset !important;
+                        -webkit-text-fill-color: var(--Text) !important;
+                        border: 1px solid var(--BorderCard);
+                    }
+                }
+
+                .part2-Links {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 20px 0;
+                    gap: 20px;
+                    flex: 1;
+
+                    .info {
+                        width: 100%;
+                        margin-top: 0;
+
+                        h3 {
+                            font-size: clamp(1.2rem, 3vw, 1.5rem);
+                            margin: 0 0 15px 0;
+                            color: var(--Text);
+                        }
+
+                        .resultado {
+                            padding: 12px;
+                            margin: 0 auto 15px auto;
+                            border-radius: 8px;
+                            width: 100%;
+                            max-width: 400px;
+                            min-height: 60px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: bold;
+                            font-size: clamp(0.8rem, 2.5vw, 1rem);
+                            border: 2px solid transparent;
+                            box-sizing: border-box;
+                            word-break: break-word;
+                            text-align: center;
+
+                            &.seguro {
+                                background: var(--SeguroBg);
+                                color: var(--SeguroText);
+                                border-color: var(--SeguroBorder);
+                            }
+                            
+                            &.perigoso {
+                                background: var(--PerigosoBg);
+                                color: var(--PerigosoText);
+                                border-color: var(--PerigosoBorder);
+                            }
+                        }
+                    }
+
+                    .detalhes-analise {
+                        margin: 10px auto;
+                        padding: 15px;
+                        background: var(--DetalhesBg);
+                        border-radius: 8px;
+                        text-align: left;
+                        width: 100%;
+                        max-width: 500px;
+                        border: 1px solid var(--BorderCard);
+                        box-sizing: border-box;
+
+                        h4 {
+                            margin: 0 0 15px 0;
+                            text-align: center;
+                            font-size: clamp(1rem, 3vw, 1.2rem);
+                            color: var(--Text);
+                        }
+                        
+                        .analise-item {
+                            margin: 12px 0;
+                            padding: 12px;
+                            background: var(--ItemBg);
+                            border-radius: 6px;
+                            border: 1px solid var(--BorderCard);
+                            
+                            strong {
+                                display: block;
+                                margin-bottom: 8px;
+                                color: var(--Text);
+                                font-size: clamp(0.9rem, 2.5vw, 1rem);
+                            }
+                            
+                            span {
+                                display: block;
+                                margin-bottom: 8px;
+                                color: var(--Text);
+                                font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+                            }
+                            
+                            .texto-seguro {
+                                color: var(--SeguroText);
+                                font-weight: bold;
+                            }
+                            
+                            .texto-perigoso {
+                                color: var(--PerigosoText);
+                                font-weight: bold;
+                            }
+                            
+                            .alerta {
+                                padding: 8px 10px;
+                                margin: 6px 0;
+                                background: var(--AlertaBg);
+                                color: var(--AlertaText);
+                                border-left: 4px solid var(--AlertaBorder);
+                                font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+                                border-radius: 4px;
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+
+                .button-verifyLinks {
+                    height: 50px;
+                    width: 200px;
+                    background-color: var(--ButtonBg);
+                    border: 2px solid var(--BorderButton);
+                    color: var(--TextButton);
+                    font-size: clamp(1rem, 3vw, 1.2rem);
+                    font-weight: bold;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin: 10px auto 0 auto;
+                    flex-shrink: 0;
+
+                    &:hover:not(:disabled) {
+                        background-color: var(--ButtonHover);
+                    }
+
+                    &:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                        transform: none;
+                    }
+                }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+
+  .modal-pagamento {
+    background: linear-gradient(135deg, var(--CardBg) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border: 3px solid #ff6b6b;
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideUp 0.4s ease;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ff6b6b);
+      border-radius: 22px;
+      z-index: -1;
+      animation: borderGlow 2s infinite;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin: 0 0 20px 0;
+      color: #ff6b6b;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      
+      &::before {
+        content: '🚫';
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 15px 0;
+      color: var(--Text);
+      
+      &:first-of-type {
+        font-weight: bold;
+        color: #ff6b6b;
+        font-size: 1.2rem;
+      }
+      
+      &:last-of-type {
+        background: rgba(255, 107, 107, 0.1);
+        padding: 12px;
+        border-radius: 10px;
+        border-left: 4px solid #ff6b6b;
+        margin-top: 20px;
+      }
+    }
+
+    .modal-botoes {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+
+      .btn-pagar {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        border: 2px solid #1e7e34;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s;
+        }
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+          
+          &::before {
+            left: 100%;
+          }
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+          transform: none;
+        }
+      }
+
+      .btn-cancelar {
+        background: linear-gradient(135deg, #6c757d, #868e96);
+        border: 2px solid #495057;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+          background: linear-gradient(135deg, #5a6268, #727b84);
+        }
+      }
+    }
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Indicador de Limite Zero no Card */
+.info-limite.zero {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ff4757;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  
+  h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    
+    &::before {
+      content: '⚠️';
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* Estado desabilitado quando limite é zero */
+.limite-zero {
+  .part1-Links {
+    input {
+      background: rgba(255, 107, 107, 0.1) !important;
+      border-color: #ff6b6b !important;
+      color: #ff6b6b !important;
+      cursor: not-allowed;
+      
+      &::placeholder {
+        color: rgba(255, 107, 107, 0.7) !important;
+      }
+    }
+  }
+  
+  .button-verifyLinks {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e) !important;
+    border-color: #ff4757 !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+    
+    &:hover {
+      transform: none !important;
+    }
+  }
+}
+
+/* Modo escuro específico para o modal */
+.MainVerifyLinks.dark {
+  .modal-pagamento {
+    background: linear-gradient(135deg, var(--CardBg) 0%, rgba(40, 40, 40, 0.8) 100%);
+    
+    p:last-of-type {
+      background: rgba(255, 107, 107, 0.15);
+      border-left-color: #ff6b6b;
+    }
+  }
+  
+  .info-limite.zero {
+    background: linear-gradient(135deg, #c44569, #e66767);
+    border-color: #ff4757;
+  }
+}
+
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        .MainVerifyLinks {
+            .page-Links {
+              align-items: flex-start;
+              min-height: 100vh;
+              padding: 15px;
+              height: auto;
+                
+                .card-Links {
+                    padding: 20px 15px;
+                    min-height: auto;
+                    max-width: 500px;
+                    height: auto;
+                    
+                    .part1-Links {
+                        h2 {
+                          margin-bottom: 15px;
+                          font-size: 1.6rem;
+                        }
+                        
+                        input {
+                          font-size: 0.95rem;
+                          padding: 10px 12px;
+                          max-width: 100%;
+                        }
+                    }
+                    
+                    .part2-Links {
+                      margin: 15px 0;
+                      gap: 15px;
+                        
+                        .info {
+                            h3 {
+                                font-size: 1.3rem;
+                            }
+                            
+                            .resultado {
+                                font-size: 0.9rem;
+                                padding: 10px;
+                                min-height: 50px;
+                                max-width: 350px;
+                            }
+                        }
+                        
+                        .detalhes-analise {
+                            padding: 12px;
+                            max-width: 100%;
+                            
+                            h4 {
+                                font-size: 1.1rem;
+                            }
+                            
+                            .analise-item {
+                                padding: 10px;
+                                
+                                strong {
+                                    font-size: 0.95rem;
+                                }
+                                
+                                .alerta {
+                                    font-size: 0.85rem;
+                                    padding: 6px 8px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .button-verifyLinks {
+                        width: 180px;
+                        height: 45px;
+                        font-size: 1.1rem;
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        .MainVerifyLinks {
+            .page-Links {
+                padding: 10px;
+                padding-top: 70px;
+                
+                .card-Links {
+                    padding: 15px 10px;
+                    
+                    .part1-Links {
+                        h2 {
+                            font-size: 1.4rem;
+                            margin-bottom: 12px;
+                        }
+                        
+                        input {
+                            font-size: 0.9rem;
+                            padding: 8px 10px;
+                        }
+                    }
+                    
+                    .part2-Links {
+                        gap: 12px;
+                        margin: 12px 0;
+                        
+                        .info {
+                            h3 {
+                                font-size: 1.2rem;
+                                margin-bottom: 10px;
+                            }
+                            
+                            .resultado {
+                                font-size: 0.85rem;
+                                padding: 8px;
+                                min-height: 45px;
+                                max-width: 300px;
+                            }
+                        }
+                        
+                        .detalhes-analise {
+                            padding: 10px;
+                            
+                            h4 {
+                                font-size: 1rem;
+                                margin-bottom: 10px;
+                            }
+                            
+                            .analise-item {
+                                padding: 8px;
+                                margin: 8px 0;
+                                
+                                strong {
+                                    font-size: 0.9rem;
+                                    margin-bottom: 6px;
+                                }
+                                
+                                span {
+                                    font-size: 0.85rem;
+                                    margin-bottom: 6px;
+                                }
+                                
+                                .alerta {
+                                    font-size: 0.8rem;
+                                    padding: 5px 6px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .button-verifyLinks {
+                        width: 160px;
+                        height: 42px;
+                        font-size: 1rem;
+                        margin-top: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        .MainVerifyLinks {
+            .page-Links {
+                padding: 5px;
+                padding-top: 60px;
+                
+                .card-Links {
+                    padding: 12px 8px;
+                    
+                    .part1-Links {
+                        h2 {
+                            font-size: 1.3rem;
+                        }
+                    }
+                    
+                    .part2-Links {
+                        .info {
+                            .resultado {
+                                max-width: 280px;
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+                    
+                    .button-verifyLinks {
+                        width: 140px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
+}

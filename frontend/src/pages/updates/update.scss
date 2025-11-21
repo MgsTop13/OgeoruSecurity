@@ -1,0 +1,158 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.MainUpdate {
+    --Cardbg: #CED4DA;
+    --Card2bg: #EDEDED;
+    --borderCard: 3px solid #000000bb;
+    --borderDiv: 1px solid #000000;
+    --Text: #1E1E1E;
+    --SubTitle: #333333;
+
+    &.dark {
+        --Cardbg: #14213dc4;
+        --Card2bg: #1c3757bd;
+        --Text: #DCDCDD;
+        --SubTitle: #D1D5DB;
+    }
+    min-height: 100vh;
+    position: relative;
+
+    .cardUpdate {
+        max-width: 1214px;
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+        height: auto; 
+    }
+
+    .Mgs {
+        position: absolute;
+        top: 5% !important;
+        height: 148px;
+        width: 105px;
+        z-index: 10;
+        left: 85%;
+    }
+
+    .cardUpdate1 {
+        background-color: var(--Cardbg);
+        border: var(--borderCard);
+        position: relative;
+        max-width: 1214px;
+        margin: 20px auto;
+        height: 520px;
+        padding: 30px;
+        width: 100%;
+
+        .titleUpdate {
+            margin-bottom: 20px;
+            color: var(--Text);
+            font-size: 3rem;
+        }
+
+        .informations {
+            transform: translate(-50%, -55%);
+            background-color: var(--Card2bg);
+            border: var(--borderDiv);
+            flex-direction: column;
+            position: relative;
+            max-width: 1026px;
+            max-height: 435px;
+            overflow: auto;
+            display: flex;
+            padding: 20px;
+            width: 100%;
+            height: 80%;
+            z-index: 1; 
+            gap: 15px;
+            left: 50%;
+            top: 50%;
+            
+            .subTitleUpdate {
+                margin-bottom: 10px;
+                color: var(--Text);
+                font-size: 1.9rem;
+            }
+
+            .date1 {
+                border-bottom: 1px solid var(--borderDiv);
+                padding-bottom: 10px;
+                
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .date {
+                    color: var(--Text);
+                    font-size: 22px;
+                    margin-bottom: 5px;
+                }
+
+                .text {
+                    margin-left: 15px;
+                    color: var(--SubTitle);
+                    font-size: 18px;
+                }
+
+                .text2{
+                    margin-left: 15px;
+                    color: var(--SubTitle);
+                    font-size: 15px;
+                }
+            }
+
+            .loading, .error, .empty {
+                text-align: center;
+                padding: 20px;
+                
+                .text {
+                    margin-left: 0;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+
+// Media Queries para responsividade
+@media screen and (max-width: 768px) {
+    .MainUpdate {
+        .cardUpdate1 {
+            margin-top: 50px;
+            height: auto;
+            min-height: 400px;
+            padding: 20px;
+
+            .titleUpdate {
+                font-size: 2rem;
+            }
+
+            .informations {
+                position: static;
+                transform: none;
+                left: auto;
+                top: auto;
+                max-height: 400px;
+            }
+
+            .Mgs {
+            position: fixed;
+            left: 67%; 
+            top: 13% !important;
+            height: 148px;
+            width: 105px;
+            z-index: 10;         
+            }
+        }
+    }
+}

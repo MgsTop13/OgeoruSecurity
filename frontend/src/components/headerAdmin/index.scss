@@ -1,0 +1,160 @@
+* {
+  transition: 150ms ease;
+}
+
+.header-Admin {
+  --header-bg: #6892c196;
+  --text-color: #1E293B;
+  --link-color: #1E293B;
+  --link-hover: #333366;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--header-bg);
+  padding: 0.5rem 1rem;
+  position: relative;
+
+  &.dark {
+    --header-bg: #112a4396;
+    --text-color: #e2e3de;
+    --link-color: #e2e3de;
+    --link-hover: #00CA1E;
+  }
+
+  .logo {
+    width: 4.5% !important;
+    margin: 0.6rem;
+  }
+
+  /* DESKTOP */
+  .opcoes:not(.cell) { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    text-align: center;
+
+    .link {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+
+      &:hover {
+        color: var(--link-hover);
+        text-decoration: underline;
+      }
+    }
+
+    .column1,
+    .column3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .column1 {
+      width: auto;
+
+      img {
+        width: 30%;
+        margin: 10px 0;
+        transition: transform 0.75s ease-in-out;
+      }
+
+      h3 {
+        font-size: 18px;
+        color: var(--text-color);
+      }
+    }
+
+    .column3 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: auto;
+      gap: 20px;
+      position: relative;
+      right: 130%;
+      h3 {
+        font-size: 18px;
+        color: var(--text-color);
+      }
+    }
+  }
+
+  /* MOBILE */
+  .opcoes.cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+
+    .menu-hamburguer {
+      padding: 8px;
+      
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .column1 {
+      
+      img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.75s ease-in-out;
+      }
+    }
+
+    .menu-opcoes {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--header-bg);
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      min-width: 150px;
+      z-index: 1000;
+
+      .link {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0;
+        padding: 8px 12px;
+        border-radius: 4px;
+
+        &:hover {
+          background: rgba(255,255,255,0.1);
+          color: var(--link-hover);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header-Admin {
+    .logo {
+      width: 8.5% !important;
+      margin: 0.6rem;
+    }
+  }
+}
+
+@media (min-width: 769px){
+  .header-Admin{
+    .opcoes:not(.cell){
+      flex-direction: row;
+    }
+  }
+}

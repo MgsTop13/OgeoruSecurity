@@ -1,0 +1,326 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.MainAdd {
+  transition: background 0.3s, color 0.3s;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+
+  --card-hover-shadow: -1px 10px 10px #000000ea;
+  --card-shadow: -2px 3px 2px #00000077;
+  --paragraph-color: #333333;
+  --button-border: #000000;
+  --card-border: #000000c7;
+  --text-color: #002b97cc;
+  --button-hover: #262650;
+  --title-color: #2e2e2e;
+  --border-info: #000000b7;
+  --infos-bg: #cedad83b;
+  --button-bg: #333366;
+
+  // Tema claro
+  &.light {
+    color: #1e293b;
+    --card-bg: #ced4dabb;
+    --list-bg: rgba(32, 112, 158, 0.719);
+    --input-bg: #fff;
+    --input-color: #1e1e1e;
+    --accent-color: #33ff00;
+    --item-bg: #f7f7f7;
+    --selected-bg: #e3f2fd;
+  }
+
+  // Tema escuro
+  &.dark {
+    color: #e2e8f0;
+    --card-bg: #28374e98;
+    --list-bg: rgba(7, 54, 56, 0.74);
+    --card-border: #334155;
+    --input-bg: #0f172a;
+    --input-color: #f1f5f9;
+    --accent-color: #93c5fd;
+    --item-bg: #1e293b;
+    --selected-bg: #334155;
+    --text-color: #e2e8f0;
+    --paragraph-color: #D1D5DB;
+    --button-hover: #262650;
+    --title-color: #FFFFFF;
+    --button-bg: #0040FF;
+  }
+
+  .criar-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    padding: 1rem;
+
+    .card-criar {
+      flex: 1;
+      min-width: 280px;
+      max-width: 500px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 250ms;
+
+      &:hover {
+        box-shadow: var(--card-hover-shadow);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 0.8rem;
+        color: var(--title-color);
+      }
+
+      .input-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+
+        input {
+          flex: 1;
+          padding: 0.6rem;
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          font-size: 1rem;
+          background-color: var(--input-bg);
+          color: var(--input-color);
+        }
+
+        button {
+          padding: 0.6rem 1rem;
+          background: var(--button-bg);
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: var(--button-hover);
+          }
+        }
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 70px;
+        margin: 0.4rem 0;
+        border-radius: 6px;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        resize: none;
+        font-size: 0.95rem;
+        background-color: var(--input-bg);
+        color: var(--input-color);
+      }
+    }
+
+    .virus-list-container {
+      flex: 1;
+      min-width: 280px;
+      max-width: 500px;
+      background: var(--list-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      transition: background 0.3s, border 0.3s, color 0.3s;
+
+      &:hover {
+        box-shadow: var(--card-hover-shadow);
+      }
+
+      h3 {
+        margin-bottom: 0.5rem;
+        color: var(--accent-color);
+      }
+
+      .virus-list {
+        width: 100%;
+        max-height: 260px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      .virus-item {
+        background: var(--item-bg);
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        transition: transform 0.15s, border-color 0.15s, background 0.3s;
+        cursor: pointer;
+        text-align: left;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        &.selected {
+          border-color: #1565c0;
+          background: var(--selected-bg);
+        }
+
+        strong {
+          color: var(--accent-color);
+          display: block;
+        }
+
+        p {
+          margin-top: 0.25rem;
+          font-size: 0.9rem;
+          color: var(--text-color);
+        }
+      }
+
+      .delete-btn {
+        padding: 0.6rem 1rem;
+        width: 80%;
+        border: none;
+        border-radius: 8px;
+        background-color: #c62828;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover:not(:disabled) {
+          background-color: #a31212;
+        }
+
+        &:disabled {
+          background-color: #888;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// Animações
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Tablets
+@media screen and (max-width: 1024px) {
+  body {
+    height: 100vh;
+  }
+
+  .MainAdd {
+    .criar-container {
+      padding: 0 2rem;
+      
+      .card-criar,
+      .virus-list-container {
+        min-width: 250px;
+        
+        .delete-btn {
+          width: 85%;
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+@media screen and (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .MainAdd {
+    .criar-container {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 1rem;
+
+      .card-criar,
+      .virus-list-container {
+        width: 100%;
+        border-radius: 12px;
+        max-width: unset;
+      }
+
+      .delete-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Mobile Pequeno
+@media screen and (max-width: 480px) {
+  .MainAdd {
+    .criar-container {
+      gap: 0.8rem;
+      padding: 0 0.5rem;
+
+      .card-criar,
+      .virus-list-container {
+        min-width: unset;
+        padding: 0.8rem;
+
+        h2, h3 {
+          font-size: 1.1rem;
+        }
+
+        .input-btn {
+          flex-direction: column;
+          gap: 0.3rem;
+
+          input, button {
+            width: 100%;
+          }
+        }
+
+        .virus-item {
+          padding: 0.5rem 0.8rem;
+          
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

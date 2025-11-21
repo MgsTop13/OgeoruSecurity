@@ -1,0 +1,334 @@
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.MainAdmin {
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+
+    --card-hover-shadow: -1px 10px 10px #000000ea;
+    --card-shadow: -2px 3px 2px #00000077;
+    --paragraph-color: #333333;
+    --button-border: #000000;
+    --card-border: #000000c7;
+    --text-color: #002b97cc;
+    --button-hover: #262650;
+    --title-color: #000000;
+    --border-info: #000000b7;
+    --infos-bg: #cedad83b;
+    --card-bg: #ced4dabb;
+    --button-bg: #333366;
+    --AdminColor: linear-gradient(-45deg, #014d0c,#208ab1, #002b97, #0048ff);
+
+    &.dark {
+        --card-hover-shadow: -1px 10px 10px #000000ea;
+        --card-shadow: -2px 3px 2px #00000094;
+        --paragraph-color: #D1D5DB;
+        --button-border: #000000;
+        --button-hover: #262650;
+        --card-border: #1E1E1E;
+        --title-color: #FFFFFF;
+        --text-color: #00CA1E;
+        --card-bg: #28374e98;
+        --button-bg: #0040FF;
+        --AdminColor: linear-gradient(-45deg, #00CA1E, #0040FF, #23a6d5, #e73c7e);    
+    }
+
+    .NmAdmin {
+        padding: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .welcome {
+            color: var(--title-color);
+            font-size: 1.5rem;
+        }
+        
+        .NmAdmin2 {
+            background: var(--AdminColor);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            background-size: 400% 400%;
+            animation: gradient 6s ease infinite;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .welcome2 {
+            color: var(--title-color);
+            position: relative;
+            left: -0.5%;
+            font-size: 1.5rem;
+        }
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+
+    .cards {
+        justify-content: space-evenly;
+        justify-self: center;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+
+        .card-1,
+        .card-2,
+        .card-3 {
+            border: 2px solid var(--card-border);
+            background-color: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border-radius: 5% !important;
+            transition: all 270ms ease;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 3px;
+            position: relative;
+            text-align: center;
+            min-width: 280px;
+            height: 230px;
+            padding: 1.5%;
+            display: flex;
+            width: 20%;
+
+            &:hover {
+                box-shadow: var(--card-hover-shadow);
+                transform: translateY(-10px);
+            }
+
+            .titlecard-1,
+            .titlecard-2,
+            .titlecard-3 {
+                display: flex;
+                font-size: 0.8rem;
+                text-align: end;
+                align-items: center;
+                margin-right: 7%;
+                padding: 3%;
+                color: var(--title-color);
+
+                img {
+                    margin: 3%;
+                    width: 30%;
+                }
+            }
+
+            p {
+                width: 70%;
+                color: var(--paragraph-color);
+                margin-top: 5%;
+                flex-grow: 1;
+                font-size: 0.9rem;
+            }
+
+            .button-container {
+                position: absolute;
+                bottom: -25px;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                
+                button {
+                    border-radius: 5% !important;
+                    background-color: var(--button-bg);
+                    border: 3px solid var(--button-border);
+                    color: #FFFFFF;
+                    font-size: 18px;
+                    padding: 10px 20px;
+                    transition: all 350ms ease;
+                    width: auto;
+                    min-width: 150px;
+
+                    &:hover {
+                        background-color: var(--button-hover);
+                        transform: scale(1.05);
+                    }
+
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-home{
+        margin-top: 75px;
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+    body {
+        height: 100vh;
+    }
+
+    .MainAdmin {
+        .NmAdmin {
+            padding: 15px;
+            
+            .welcome,
+            .NmAdmin2,
+            .welcome2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        .cards {
+            gap: 1.5rem;
+            padding: 0 2rem;
+
+            .card-1,
+            .card-2,
+            .card-3 {
+                width: 45%;
+                min-width: 250px;
+                height: 220px;
+                
+                .button-container {
+                    button {
+                        font-size: 16px;
+                        padding: 8px 16px;
+                        min-width: 140px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .MainAdmin {
+        .NmAdmin {
+            padding: 15px;
+            flex-direction: row;
+            text-align: center;
+            gap: 2px;
+
+            .welcome,
+            .NmAdmin2,
+            .welcome2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        .cards {
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            padding: 0 1rem;
+
+            .card-1,
+            .card-2,
+            .card-3 {
+                width: 100%;
+                max-width: 320px;
+                min-width: unset;
+                height: 200px;
+                padding: 5%;
+
+                .titlecard-1,
+                .titlecard-2,
+                .titlecard-3 {
+                    font-size: 0.75rem;
+                    margin-right: 5%;
+                    
+                    img {
+                        width: 25%;
+                    }
+                }
+
+                p {
+                    width: 85%;
+                    font-size: 0.85rem;
+                    margin-top: 8%;
+                }
+
+                .button-container {
+                    bottom: -20px;
+                    
+                    button {
+                        font-size: 16px;
+                        padding: 8px 16px;
+                        min-width: 130px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Mobile Pequeno */
+@media screen and (max-width: 480px) {
+    .MainAdmin {
+        .NmAdmin {
+            .welcome,
+            .NmAdmin2,
+            .welcome2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        .cards {
+            gap: 3rem;
+
+            .card-1,
+            .card-2,
+            .card-3 {
+                height: 180px;
+                max-width: 280px;
+
+                .titlecard-1,
+                .titlecard-2,
+                .titlecard-3 {
+                    font-size: 0.7rem;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                    width: 90%;
+                }
+
+                .button-container {
+                    button {
+                        font-size: 14px;
+                        padding: 6px 12px;
+                        min-width: 120px;
+                    }
+                }
+            }
+        }
+    }
+}

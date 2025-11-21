@@ -1,0 +1,706 @@
+.MainSobre {
+    --text-color: #002b97cc;
+    --title-color: #000000;
+    --paragraph-color: #333333;
+    --card-bg: #ced4dabb;
+    --card-border: #000000c7;
+    --card-shadow: -2px 3px 2px #00000077;
+    --card-hover-shadow: -1px 10px 10px #000000ea;
+    --table-border: #00000033;
+    --table-header-bg: #333366;
+    --table-even-bg: #f8f9fa;
+
+    &.dark {
+        --text-color: #00CA1E;
+        --title-color: #FFFFFF;
+        --paragraph-color: #D1D5DB;
+        --card-bg: #28374e98;
+        --card-border: #1E1E1E;
+        --card-shadow: -2px 3px 2px #00000094;
+        --card-hover-shadow: -1px 10px 10px #000000ea;
+        --table-border: #ffffff33;
+        --table-header-bg: #0040FF;
+        --table-even-bg: #1a2536;
+    }
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .sobre-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        flex: 1;
+        width: 100%;
+        box-sizing: border-box;
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--title-color);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            border-bottom: 3px solid var(--table-header-bg);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            border-left: 4px solid var(--table-header-bg);
+            padding-left: 1rem;
+            line-height: 1.3;
+        }
+
+        // Seção de Informações da Empresa
+        .empresa-info {
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+                margin-top: 2rem;
+
+                .info-card {
+                    background-color: var(--card-bg);
+                    border: 2px solid var(--card-border);
+                    border-radius: 10px;
+                    padding: 1.5rem;
+                    box-shadow: var(--card-shadow);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        box-shadow: var(--card-hover-shadow);
+                        transform: translateY(-5px);
+                    }
+
+                    h2 {
+                        border-left: none;
+                        border-bottom: 2px solid var(--table-header-bg);
+                        padding-left: 0;
+                        padding-bottom: 0.5rem;
+                        margin-bottom: 1rem;
+                        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+                    }
+
+                    .info-details {
+                        .info-item {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 0.8rem 0;
+                            border-bottom: 1px solid var(--table-border);
+                            flex-wrap: wrap;
+                            gap: 0.5rem;
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            strong {
+                                color: var(--title-color);
+                                font-weight: 600;
+                                font-size: clamp(0.9rem, 2vw, 1rem);
+                                min-width: 100px;
+                            }
+
+                            span, a {
+                                color: var(--paragraph-color);
+                                text-decoration: none;
+                                font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+                                text-align: right;
+                                word-break: break-word;
+                            }
+
+                            a:hover {
+                                color: var(--text-color);
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Seção do Surgimento
+        .surgimento-section {
+            .surgimento-content {
+                background-color: var(--card-bg);
+                border: 2px solid var(--card-border);
+                border-radius: 10px;
+                padding: clamp(1rem, 3vw, 2rem);
+                box-shadow: var(--card-shadow);
+
+                p {
+                    color: var(--paragraph-color);
+                    line-height: 1.6;
+                    margin-bottom: 1.5rem;
+                    text-align: justify;
+                    font-size: clamp(0.95rem, 2vw, 1.1rem);
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        // Seção de Comparação
+        .comparacao-section {
+            .tabela-comparacao {
+                overflow-x: auto;
+                background-color: var(--card-bg);
+                border: 2px solid var(--card-border);
+                border-radius: 10px;
+                padding: 1rem;
+                box-shadow: var(--card-shadow);
+                -webkit-overflow-scrolling: touch;
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    min-width: 600px;
+
+                    th, td {
+                        padding: clamp(0.5rem, 2vw, 1rem);
+                        text-align: center;
+                        border: 1px solid var(--table-border);
+                        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+                    }
+
+                    th {
+                        background-color: var(--table-header-bg);
+                        color: white;
+                        font-weight: 600;
+                        white-space: nowrap;
+                    }
+
+                    td {
+                        color: var(--paragraph-color);
+                    }
+
+                    tr:nth-child(even) {
+                        background-color: var(--table-even-bg);
+                    }
+
+                    tr:hover {
+                        background-color: var(--card-border);
+                    }
+                }
+            }
+        }
+
+        // Seção de Missão
+        .missao-section {
+            .missao-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+
+                .missao-card {
+                    background-color: var(--card-bg);
+                    border: 2px solid var(--card-border);
+                    border-radius: 10px;
+                    padding: clamp(1rem, 2.5vw, 1.5rem);
+                    box-shadow: var(--card-shadow);
+                    transition: all 0.3s ease;
+                    height: fit-content;
+
+                    &:hover {
+                        box-shadow: var(--card-hover-shadow);
+                        transform: translateY(-5px);
+                    }
+
+                    h3 {
+                        border-left: none;
+                        border-bottom: 2px solid var(--table-header-bg);
+                        padding-left: 0;
+                        padding-bottom: 0.5rem;
+                        margin-bottom: 1rem;
+                        font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+                    }
+
+                    p, li {
+                        color: var(--paragraph-color);
+                        line-height: 1.6;
+                        font-size: clamp(0.9rem, 1.8vw, 1rem);
+                    }
+
+                    ul {
+                        list-style: none;
+                        padding: 0;
+
+                        li {
+                            padding: 0.5rem 0;
+                            border-bottom: 1px solid var(--table-border);
+                            font-size: clamp(0.9rem, 1.8vw, 1rem);
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            &::before {
+                                content: "✓ ";
+                                color: var(--text-color);
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Tablets (769px - 1024px)
+@media screen and (max-width: 1024px) {
+    .MainSobre {
+        .sobre-container {
+            padding: 1.5rem 1rem;
+
+            .empresa-info {
+                .info-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 1.2rem;
+                }
+            }
+
+            .missao-section {
+                .missao-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    gap: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+// Tablets Pequenos e Mobile Landscape (601px - 768px)
+@media screen and (max-width: 768px) {
+    .MainSobre {
+        .sobre-container {
+            padding: 1rem 0.8rem;
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                border-left: 3px solid var(--table-header-bg);
+                padding-left: 0.8rem;
+            }
+
+            section {
+                margin-bottom: 2rem;
+            }
+
+            .empresa-info {
+                .info-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+
+                    .info-card {
+                        padding: 1.2rem;
+
+                        .info-details {
+                            .info-item {
+                                padding: 0.6rem 0;
+                                
+                                strong {
+                                    min-width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .surgimento-section {
+                .surgimento-content {
+                    padding: 1.2rem;
+                    
+                    p {
+                        font-size: 0.95rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+
+            .comparacao-section {
+                .tabela-comparacao {
+                    padding: 0.8rem;
+                    margin: 0 -0.5rem;
+                    
+                    table {
+                        min-width: 550px;
+                        
+                        th, td {
+                            padding: 0.6rem 0.4rem;
+                            font-size: 0.85rem;
+                        }
+                    }
+                }
+            }
+
+            .missao-section {
+                .missao-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+
+                    .missao-card {
+                        padding: 1.2rem;
+                        
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+                        
+                        p, li {
+                            font-size: 0.95rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile Médio (481px - 600px)
+@media screen and (max-width: 600px) {
+    .MainSobre {
+        .sobre-container {
+            padding: 0.8rem 0.6rem;
+
+            h1 {
+                font-size: 1.6rem;
+                padding-bottom: 0.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+                padding-left: 0.6rem;
+                margin-bottom: 1rem;
+            }
+
+            .empresa-info {
+                .info-grid {
+                    .info-card {
+                        padding: 1rem;
+
+                        h2 {
+                            font-size: 1.1rem;
+                        }
+
+                        .info-details {
+                            .info-item {
+                                flex-direction: column;
+                                align-items: flex-start;
+                                gap: 0.3rem;
+                                padding: 0.5rem 0;
+
+                                strong {
+                                    min-width: auto;
+                                    font-size: 0.9rem;
+                                }
+
+                                span, a {
+                                    text-align: left;
+                                    font-size: 0.85rem;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .surgimento-section {
+                .surgimento-content {
+                    padding: 1rem;
+                    
+                    p {
+                        font-size: 0.9rem;
+                        text-align: left;
+                        line-height: 1.5;
+                    }
+                }
+            }
+
+            .comparacao-section {
+                .tabela-comparacao {
+                    padding: 0.6rem;
+                    
+                    table {
+                        min-width: 500px;
+                        
+                        th, td {
+                            padding: 0.5rem 0.3rem;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+
+            .missao-section {
+                .missao-grid {
+                    .missao-card {
+                        padding: 1rem;
+                        
+                        h3 {
+                            font-size: 1.1rem;
+                        }
+                        
+                        p, li {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile Pequeno (até 480px)
+@media screen and (max-width: 480px) {
+    .MainSobre {
+        .sobre-container {
+            padding: 0.6rem 0.4rem;
+
+            h1 {
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+                border-left: 2px solid var(--table-header-bg);
+                padding-left: 0.5rem;
+            }
+
+            .empresa-info {
+                .info-grid {
+                    .info-card {
+                        padding: 0.8rem;
+
+                        h2 {
+                            font-size: 1rem;
+                            margin-bottom: 0.8rem;
+                        }
+
+                        .info-details {
+                            .info-item {
+                                padding: 0.4rem 0;
+
+                                strong, span, a {
+                                    font-size: 0.8rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .surgimento-section {
+                .surgimento-content {
+                    padding: 0.8rem;
+                    
+                    p {
+                        font-size: 0.85rem;
+                        margin-bottom: 0.8rem;
+                    }
+                }
+            }
+
+            .comparacao-section {
+                .tabela-comparacao {
+                    padding: 0.4rem;
+                    border-radius: 8px;
+                    
+                    table {
+                        min-width: 450px;
+                        
+                        th, td {
+                            padding: 0.4rem 0.2rem;
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+
+            .missao-section {
+                .missao-grid {
+                    gap: 0.8rem;
+
+                    .missao-card {
+                        padding: 0.8rem;
+                        
+                        h3 {
+                            font-size: 1rem;
+                            margin-bottom: 0.8rem;
+                        }
+                        
+                        p, li {
+                            font-size: 0.85rem;
+                        }
+
+                        ul li {
+                            padding: 0.4rem 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile Muito Pequeno (até 320px)
+@media screen and (max-width: 320px) {
+    .MainSobre {
+        .sobre-container {
+            padding: 0.4rem 0.3rem;
+
+            h1 {
+                font-size: 1.3rem;
+                padding-bottom: 0.6rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+                padding-left: 0.4rem;
+            }
+
+            .empresa-info {
+                .info-grid {
+                    .info-card {
+                        padding: 0.6rem;
+
+                        .info-details {
+                            .info-item {
+                                strong, span, a {
+                                    font-size: 0.78rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .surgimento-section {
+                .surgimento-content {
+                    padding: 0.6rem;
+                    
+                    p {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
+            .comparacao-section {
+                .tabela-comparacao {
+                    padding: 0.3rem;
+                    
+                    table {
+                        min-width: 400px;
+                        
+                        th, td {
+                            padding: 0.3rem 0.1rem;
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+
+            .missao-section {
+                .missao-grid {
+                    .missao-card {
+                        padding: 0.6rem;
+                        
+                        h3 {
+                            font-size: 0.95rem;
+                        }
+                        
+                        p, li {
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Para telas grandes (acima de 1440px)
+@media screen and (min-width: 1440px) {
+    .MainSobre {
+        .sobre-container {
+            max-width: 1400px;
+            padding: 3rem 2rem;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .empresa-info {
+                .info-grid {
+                    gap: 2rem;
+
+                    .info-card {
+                        padding: 2rem;
+
+                        h2 {
+                            font-size: 1.6rem;
+                        }
+
+                        .info-details {
+                            .info-item {
+                                strong, span, a {
+                                    font-size: 1.1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .surgimento-section {
+                .surgimento-content {
+                    padding: 2.5rem;
+                    
+                    p {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            .missao-section {
+                .missao-grid {
+                    gap: 2rem;
+
+                    .missao-card {
+                        padding: 2rem;
+                        
+                        h3 {
+                            font-size: 1.5rem;
+                        }
+                        
+                        p, li {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

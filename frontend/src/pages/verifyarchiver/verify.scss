@@ -1,0 +1,469 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.MainVerifyArchiver {
+    min-height: 100dvh;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    --CardBg: #ced4dac1;
+    --BorderCard: #000000b6;
+    --ShadowCard: -2px 3px 2px #00000094;
+    --HoverCard: -1px 10px 10px #000000ea;
+    --ButtonBg: #333366;
+    --ButtonHover: #262650;
+    --BorderButton: #000000;
+    --TextButton: #FFFFFF;
+    --cursor-default: url('/images/cursor/Cursor.png') 16 16, auto;
+    --cursor-pointer: url('/images/cursor/Pointer.png') 16 16, pointer;
+    --Text: #333333;
+    --InputBg: #ffffff;
+    --InputBorder: #cccccc;
+
+    &.dark {
+        --CardBg: #28374e98;
+        --BorderCard: #1E1E1E;
+        --ShadowCard: -2px 3px 2px #00000094;
+        --HoverCard: -1px 10px 10px #000000ea;
+        --ButtonBg: #0040FF;
+        --ButtonHover: #0033CC;
+        --BorderButton: #1E1E1E;
+        --TextButton: #FFFFFF;
+        --Text: #D1D5DB;
+        --InputBg: #2d3748;
+        --InputBorder: #4a5568;
+    }
+
+    .header-pages {
+        padding: 0.5rem 1rem;
+        position: absolute;
+        z-index: 1000;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .page-archiver {
+        justify-content: center;
+        align-items: center;
+        max-width: 1500px;
+        margin-bottom: 20px;
+        display: flex;
+        width: 100%;
+        flex: 1;
+
+        .card-archiver {
+            margin-top: 100px;
+            background-color: var(--CardBg);
+            border: 2px solid var(--BorderCard);
+            box-shadow: var(--ShadowCard);
+            color: var(--Text);
+            width: 100%;
+            max-width: 650px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 30px;
+            box-sizing: border-box;
+
+            &:hover {
+                box-shadow: var(--HoverCard);
+                transform: translateY(-5px);
+            }
+
+            .part1-archiver {
+                padding: 20px 0;
+
+                h2 {
+                    font-size: 2.5rem;
+                    margin-bottom: 20px;
+                    color: var(--Text);
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                }
+
+                .file-input-container {
+                    position: relative;
+                    display: inline-block;
+                    margin: 20px 0;
+
+                    input[type="file"] {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        opacity: 0;
+                        width: 100%;
+                        height: 100%;
+                        cursor: var(--cursor-pointer);
+                    }
+
+                    .file-input-label {
+                        display: inline-block;
+                        background-color: var(--ButtonBg);
+                        color: var(--TextButton);
+                        padding: 15px 30px;
+                        border: 2px solid var(--BorderButton);
+                        border-radius: 8px;
+                        font-size: 1.2rem;
+                        cursor: var(--cursor-pointer);
+                        transition: all 0.3s ease;
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+                        &:hover {
+                            background-color: var(--ButtonHover);
+                            transform: translateY(-2px);
+                        }
+                    }
+
+                    .file-name {
+                        display: block;
+                        margin-top: 10px;
+                        font-size: 1rem;
+                        color: var(--Text);
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                        word-break: break-all;
+                    }
+                }
+            }
+
+            .part2-archiver {
+                padding: 20px 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h3 {
+                    font-size: 2rem;
+                    margin-bottom: 15px;
+                    color: var(--Text);
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                }
+
+                .file-info {
+                    font-size: 1.1rem;
+                    color: var(--Text);
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    margin: 10px 0;
+                    
+                    &.file-size {
+                        font-weight: bold;
+                    }
+                    
+                    &.file-type {
+                        font-style: italic;
+                    }
+                }
+
+                .status-message {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    margin: 15px 0;
+                    padding: 10px;
+                    border-radius: 6px;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    
+                    &.safe {
+                        background-color: rgba(76, 175, 80, 0.2);
+                        color: #2e7d32;
+                    }
+                    
+                    &.warning {
+                        background-color: rgba(255, 152, 0, 0.2);
+                        color: #ef6c00;
+                    }
+                    
+                    &.danger {
+                        background-color: rgba(244, 67, 54, 0.2);
+                        color: #c62828;
+                    }
+                }
+            }
+
+            .button-verifyArchiver {
+                background-color: var(--ButtonBg);
+                border: 2px solid var(--BorderButton);
+                color: var(--TextButton);
+                font-size: 1.3rem;
+                padding: 15px 30px;
+                border-radius: 8px;
+                cursor: var(--cursor-pointer);
+                transition: all 0.3s ease;
+                margin-top: 20px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                width: 100%;
+                max-width: 250px;
+                align-self: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+                &:hover:not(:disabled) {
+                    background-color: var(--ButtonHover);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+
+                &:disabled {
+                    background-color: #cccccc;
+                    cursor: not-allowed;
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+    .footer-home{
+        position: absolute;
+        top: 97%;
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .MainVerifyArchiver {
+        padding: 15px;
+        
+        .page-archiver {
+            .card-archiver {
+                max-width: 500px;
+                padding: 25px;
+                min-height: 280px;
+                
+                .part1-archiver {
+                    h2 {
+                        font-size: 2rem;
+                    }
+                    
+                    .file-input-container {
+                        .file-input-label {
+                            padding: 12px 25px;
+                            font-size: 1.1rem;
+                        }
+                        
+                        .file-name {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+                
+                .part2-archiver {
+                    h3 {
+                        font-size: 1.7rem;
+                    }
+                    
+                    .file-info {
+                        font-size: 1rem;
+                    }
+                    
+                    .status-message {
+                        font-size: 1.1rem;
+                    }
+                }
+                
+                .button-verifyArchiver {
+                    font-size: 1.2rem;
+                    padding: 12px 25px;
+                    max-width: 220px;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .MainVerifyArchiver {
+        padding: 10px;
+        
+        .page-archiver {
+            .card-archiver {
+                max-width: 100%;
+                padding: 20px;
+                min-height: 250px;
+                
+                .part1-archiver {
+                    padding: 15px 0;
+                    
+                    h2 {
+                        font-size: 1.7rem;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .file-input-container {
+                        .file-input-label {
+                            padding: 10px 20px;
+                            font-size: 1rem;
+                            width: 100%;
+                        }
+                        
+                        .file-name {
+                            font-size: 0.85rem;
+                        }
+                    }
+                }
+                
+                .part2-archiver {
+                    padding: 15px 0;
+                    
+                    h3 {
+                        font-size: 1.5rem;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .file-info {
+                        font-size: 0.9rem;
+                    }
+                    
+                    .status-message {
+                        font-size: 1rem;
+                        padding: 8px;
+                    }
+                }
+                
+                .button-verifyArchiver {
+                    font-size: 1.1rem;
+                    padding: 10px 20px;
+                    max-width: 200px;
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .MainVerifyArchiver {
+        .page-archiver {
+            .card-archiver {
+                padding: 15px;
+                
+                .part1-archiver {
+                    h2 {
+                        font-size: 1.5rem;
+                    }
+                }
+                
+                .part2-archiver {
+                    h3 {
+                        font-size: 1.3rem;
+                    }
+                }
+                
+                .button-verifyArchiver {
+                    font-size: 1rem;
+                    padding: 8px 16px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .MainVerifyArchiver {
+        .page-archiver {
+            .card-archiver {
+                max-width: 700px;
+                min-height: 350px;
+                
+                .part1-archiver {
+                    h2 {
+                        font-size: 2.8rem;
+                    }
+                    
+                    .file-input-container {
+                        .file-input-label {
+                            font-size: 1.3rem;
+                            padding: 18px 35px;
+                        }
+                    }
+                }
+                
+                .part2-archiver {
+                    h3 {
+                        font-size: 2.2rem;
+                    }
+                    
+                    .file-info {
+                        font-size: 1.2rem;
+                    }
+                    
+                    .status-message {
+                        font-size: 1.3rem;
+                    }
+                }
+                
+                .button-verifyArchiver {
+                    font-size: 1.4rem;
+                    padding: 18px 35px;
+                    max-width: 280px;
+                }
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .MainVerifyArchiver {
+        .page-archiver {
+            .card-archiver {
+                transition: none;
+                
+                &:hover {
+                    transform: none;
+                    box-shadow: var(--ShadowCard);
+                }
+                
+                .file-input-container {
+                    .file-input-label {
+                        transition: none;
+                        
+                        &:hover {
+                            transform: none;
+                        }
+                    }
+                }
+                
+                .button-verifyArchiver {
+                    transition: none;
+                    
+                    &:hover:not(:disabled) {
+                        transform: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.success-animation {
+    animation: successPulse 0.6s ease-in-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
